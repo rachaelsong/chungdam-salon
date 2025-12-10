@@ -1,65 +1,633 @@
-import Image from "next/image";
+/* ===========================
+   청담 살롱 공통 레이아웃
+   =========================== */
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+:root {
+  --cs-bg: #050510;
+  --cs-bg-soft: #0b0b19;
+  --cs-card-bg: rgba(18, 18, 36, 0.92);
+  --cs-border-subtle: rgba(255, 255, 255, 0.08);
+  --cs-primary: #a879ff;
+  --cs-primary-soft: rgba(168, 121, 255, 0.18);
+  --cs-primary-strong: #c39bff;
+  --cs-text: #f6f3ff;
+  --cs-text-muted: #b7b3d9;
+  --cs-pill-bg: rgba(255, 255, 255, 0.04);
+  --cs-danger: #ff7a7a;
 }
+
+html,
+body {
+  background: radial-gradient(circle at top, #1a1030 0, #050510 48%, #020207 100%);
+  color: var(--cs-text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard Variable",
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
+/* 전체 페이지 래퍼 */
+.cs-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 공통 컨테이너 */
+.cs-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===========================
+   헤더
+   =========================== */
+
+.cs-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(18px);
+  background: radial-gradient(circle at top, rgba(60, 45, 120, 0.85), rgba(5, 5, 16, 0.96));
+  border-bottom: 1px solid var(--cs-border-subtle);
+}
+
+.cs-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.cs-logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-primary-strong);
+}
+
+.cs-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.cs-nav a {
+  color: var(--cs-text-muted);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.18s ease;
+}
+
+.cs-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cs-primary), var(--cs-primary-strong));
+  transition: width 0.18s ease;
+}
+
+.cs-nav a:hover {
+  color: var(--cs-text);
+}
+
+.cs-nav a:hover::after {
+  width: 100%;
+}
+
+/* ===========================
+   히어로 섹션
+   =========================== */
+
+.cs-hero {
+  position: relative;
+  padding: 4.5rem 0 4rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(168, 121, 255, 0.35), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(255, 140, 184, 0.32), transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(61, 99, 255, 0.26), transparent 60%);
+}
+
+.cs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0, #050510 65%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.cs-hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.cs-hero-text h1 {
+  font-size: clamp(2.2rem, 3vw, 2.9rem);
+  line-height: 1.15;
+  margin: 1.25rem 0;
+}
+
+.cs-hero-text h1 span {
+  color: var(--cs-primary-strong);
+}
+
+.cs-hero-sub {
+  color: var(--cs-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.cs-hero-sub strong {
+  font-weight: 600;
+}
+
+.cs-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--cs-pill-bg);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--cs-text-muted);
+}
+
+.cs-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.cs-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+}
+
+.cs-hero-meta span {
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.cs-hero-meta span::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--cs-primary-strong);
+}
+
+/* 히어로 카드 */
+.cs-hero-card {
+  position: relative;
+}
+
+.cs-hero-card-inner {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(145deg, rgba(15, 10, 34, 0.95), rgba(10, 8, 24, 0.98)),
+    radial-gradient(circle at 0 0, rgba(168, 121, 255, 0.16), transparent 55%);
+  padding: 1.6rem 1.5rem;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(168, 121, 255, 0.18);
+}
+
+.cs-hero-card-inner h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.cs-hero-card-inner p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--cs-text-muted);
+}
+
+.cs-hero-tag {
+  margin-top: 1.1rem;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 121, 255, 0.5);
+  background: rgba(168, 121, 255, 0.09);
+  color: var(--cs-primary-strong);
+  display: inline-flex;
+}
+
+/* ===========================
+   공통 섹션
+   =========================== */
+
+.cs-section {
+  padding: 3.5rem 0;
+}
+
+.cs-section-title {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.cs-section-sub {
+  text-align: center;
+  font-size: 0.94rem;
+  color: var(--cs-text-muted);
+  margin-bottom: 2.5rem;
+}
+
+/* 3열 카드 */
+.cs-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.cs-card {
+  border-radius: 1.2rem;
+  border: 1px solid var(--cs-border-subtle);
+  background: linear-gradient(145deg, rgba(10, 8, 24, 0.96), rgba(6, 5, 16, 0.96));
+  padding: 1.4rem 1.3rem;
+}
+
+.cs-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cs-card p {
+  font-size: 0.9rem;
+  color: var(--cs-text-muted);
+  line-height: 1.7;
+}
+
+/* ===========================
+   버튼
+   =========================== */
+
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.1s ease;
+}
+
+.cs-btn-full {
+  width: 100%;
+}
+
+.cs-btn-primary {
+  background: linear-gradient(135deg, var(--cs-primary), var(--cs-primary-strong));
+  color: #050510;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.cs-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.cs-btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--cs-text-muted);
+}
+
+.cs-btn-outline:hover {
+  border-color: var(--cs-primary);
+  color: var(--cs-primary-strong);
+  background: rgba(168, 121, 255, 0.06);
+}
+
+/* ===========================
+   패키지 카드
+   =========================== */
+
+.cs-packages {
+  background: radial-gradient(circle at top, rgba(65, 51, 110, 0.9), rgba(7, 6, 18, 0.98));
+}
+
+.cs-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.cs-package-card {
+  border-radius: 1.4rem;
+  border: 1px solid var(--cs-border-subtle);
+  background: linear-gradient(145deg, rgba(8, 7, 20, 0.96), rgba(10, 8, 26, 0.98));
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cs-package-featured {
+  border-color: rgba(255, 255, 255, 0.2);
+  background:
+    radial-gradient(circle at top, rgba(168, 121, 255, 0.18), transparent 55%),
+    linear-gradient(145deg, rgba(14, 10, 36, 0.98), rgba(8, 6, 20, 0.98));
+  transform: translateY(-4px);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(168, 121, 255, 0.35);
+}
+
+.cs-package-header h3 {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+}
+
+.cs-package-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--cs-text-muted);
+}
+
+.cs-price {
+  margin-top: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.cs-price-unit {
+  font-size: 0.85rem;
+  margin-left: 0.2rem;
+  color: var(--cs-text-muted);
+}
+
+.cs-package-list {
+  list-style: none;
+  margin: 1rem 0 1.1rem;
+  padding: 0;
+  font-size: 0.88rem;
+  color: var(--cs-text-muted);
+}
+
+.cs-package-list li {
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+
+.cs-package-list li::before {
+  content: "✶";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--cs-primary-strong);
+}
+
+.cs-package-note {
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+  margin-bottom: 0.7rem;
+}
+
+/* ===========================
+   진행 단계
+   =========================== */
+
+.cs-process {
+  background: radial-gradient(circle at bottom, rgba(27, 40, 112, 0.7), rgba(5, 5, 16, 1));
+}
+
+.cs-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.4rem;
+}
+
+.cs-steps li {
+  border-radius: 1rem;
+  border: 1px solid var(--cs-border-subtle);
+  padding: 1.3rem 1.2rem;
+  background: rgba(8, 7, 22, 0.98);
+}
+
+.cs-steps h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cs-steps p {
+  font-size: 0.9rem;
+  color: var(--cs-text-muted);
+  line-height: 1.7;
+}
+
+/* ===========================
+   FAQ
+   =========================== */
+
+.cs-faq {
+  background: radial-gradient(circle at top, rgba(44, 38, 86, 0.9), rgba(5, 5, 16, 0.98));
+}
+
+.cs-faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cs-faq-list details {
+  border-radius: 0.9rem;
+  border: 1px solid var(--cs-border-subtle);
+  background: rgba(10, 8, 24, 0.98);
+  padding: 0.85rem 1rem;
+}
+
+.cs-faq-list summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.cs-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.cs-faq-list summary::after {
+  content: "＋";
+  float: right;
+  font-size: 0.9rem;
+  color: var(--cs-text-muted);
+}
+
+.cs-faq-list details[open] summary::after {
+  content: "－";
+}
+
+.cs-faq-list p {
+  margin-top: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+}
+
+/* ===========================
+   CTA
+   =========================== */
+
+.cs-cta {
+  background: radial-gradient(circle at center, rgba(168, 121, 255, 0.45), #050510);
+}
+
+.cs-cta-inner {
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(145deg, rgba(5, 4, 16, 0.96), rgba(10, 6, 26, 0.98)),
+    radial-gradient(circle at 100% 0, rgba(255, 178, 206, 0.18), transparent 60%);
+  padding: 2.2rem 1.8rem;
+}
+
+.cs-cta-inner h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.cs-cta-inner p {
+  font-size: 0.94rem;
+  color: var(--cs-text-muted);
+  line-height: 1.7;
+}
+
+.cs-cta-sub {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+}
+
+.cs-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.cs-cta-note {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--cs-text-muted);
+}
+
+/* ===========================
+   푸터
+   =========================== */
+
+.cs-footer {
+  border-top: 1px solid var(--cs-border-subtle);
+  padding: 1.4rem 0 1.8rem;
+  background: #050510;
+}
+
+.cs-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+}
+
+.cs-footer-left p {
+  margin-top: 0.2rem;
+}
+
+.cs-footer-right p {
+  margin: 0.1rem 0;
+}
+
+/* ===========================
+   반응형
+   =========================== */
+
+@media (max-width: 900px) {
+  .cs-header-inner {
+    justify-content: space-between;
+  }
+
+  .cs-nav {
+    display: none;
+  }
+
+  .cs-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cs-hero-card-inner {
+    margin-top: 0.5rem;
+  }
+
+  .cs-packages-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cs-grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cs-cta-inner {
+    padding: 1.7rem 1.4rem;
+  }
+
+  .cs-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cs-section {
+    padding: 3rem 0;
+  }
+
+  .cs-hero {
+    padding-top: 3.3rem;
+  }
+
+  .cs-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .cs-hero-meta {
+    flex-direction: column;
+  }
+}
+
