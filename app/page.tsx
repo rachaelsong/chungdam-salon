@@ -1,633 +1,363 @@
-/* ===========================
-   청담 살롱 공통 레이아웃
-   =========================== */
-
-:root {
-  --cs-bg: #050510;
-  --cs-bg-soft: #0b0b19;
-  --cs-card-bg: rgba(18, 18, 36, 0.92);
-  --cs-border-subtle: rgba(255, 255, 255, 0.08);
-  --cs-primary: #a879ff;
-  --cs-primary-soft: rgba(168, 121, 255, 0.18);
-  --cs-primary-strong: #c39bff;
-  --cs-text: #f6f3ff;
-  --cs-text-muted: #b7b3d9;
-  --cs-pill-bg: rgba(255, 255, 255, 0.04);
-  --cs-danger: #ff7a7a;
-}
-
-html,
-body {
-  background: radial-gradient(circle at top, #1a1030 0, #050510 48%, #020207 100%);
-  color: var(--cs-text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard Variable",
-    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-}
-
-/* 전체 페이지 래퍼 */
-.cs-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 공통 컨테이너 */
-.cs-container {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* ===========================
-   헤더
-   =========================== */
-
-.cs-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  backdrop-filter: blur(18px);
-  background: radial-gradient(circle at top, rgba(60, 45, 120, 0.85), rgba(5, 5, 16, 0.96));
-  border-bottom: 1px solid var(--cs-border-subtle);
-}
-
-.cs-header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.cs-logo {
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cs-primary-strong);
-}
-
-.cs-nav {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.9rem;
-}
-
-.cs-nav a {
-  color: var(--cs-text-muted);
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 2px;
-  transition: color 0.18s ease;
-}
-
-.cs-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--cs-primary), var(--cs-primary-strong));
-  transition: width 0.18s ease;
-}
-
-.cs-nav a:hover {
-  color: var(--cs-text);
-}
-
-.cs-nav a:hover::after {
-  width: 100%;
-}
-
-/* ===========================
-   히어로 섹션
-   =========================== */
-
-.cs-hero {
-  position: relative;
-  padding: 4.5rem 0 4rem;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(168, 121, 255, 0.35), transparent 55%),
-    radial-gradient(circle at 100% 0%, rgba(255, 140, 184, 0.32), transparent 55%),
-    radial-gradient(circle at 50% 90%, rgba(61, 99, 255, 0.26), transparent 60%);
-}
-
-.cs-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 0, #050510 65%);
-  opacity: 0.8;
-  pointer-events: none;
-}
-
-.cs-hero-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-  gap: 3rem;
-  align-items: center;
-}
-
-.cs-hero-text h1 {
-  font-size: clamp(2.2rem, 3vw, 2.9rem);
-  line-height: 1.15;
-  margin: 1.25rem 0;
-}
-
-.cs-hero-text h1 span {
-  color: var(--cs-primary-strong);
-}
-
-.cs-hero-sub {
-  color: var(--cs-text-muted);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.cs-hero-sub strong {
-  font-weight: 600;
-}
-
-.cs-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: var(--cs-pill-bg);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--cs-text-muted);
-}
-
-.cs-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.5rem 0 1rem;
-}
-
-.cs-hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--cs-text-muted);
-}
-
-.cs-hero-meta span {
-  position: relative;
-  padding-left: 0.9rem;
-}
-
-.cs-hero-meta span::before {
-  content: "✦";
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 0.7rem;
-  color: var(--cs-primary-strong);
-}
-
-/* 히어로 카드 */
-.cs-hero-card {
-  position: relative;
-}
-
-.cs-hero-card-inner {
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(145deg, rgba(15, 10, 34, 0.95), rgba(10, 8, 24, 0.98)),
-    radial-gradient(circle at 0 0, rgba(168, 121, 255, 0.16), transparent 55%);
-  padding: 1.6rem 1.5rem;
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(168, 121, 255, 0.18);
-}
-
-.cs-hero-card-inner h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-}
-
-.cs-hero-card-inner p {
-  font-size: 0.86rem;
-  line-height: 1.7;
-  color: var(--cs-text-muted);
-}
-
-.cs-hero-tag {
-  margin-top: 1.1rem;
-  font-size: 0.78rem;
-  padding: 0.45rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(168, 121, 255, 0.5);
-  background: rgba(168, 121, 255, 0.09);
-  color: var(--cs-primary-strong);
-  display: inline-flex;
-}
-
-/* ===========================
-   공통 섹션
-   =========================== */
-
-.cs-section {
-  padding: 3.5rem 0;
-}
-
-.cs-section-title {
-  font-size: 1.6rem;
-  text-align: center;
-  margin-bottom: 0.75rem;
-}
-
-.cs-section-sub {
-  text-align: center;
-  font-size: 0.94rem;
-  color: var(--cs-text-muted);
-  margin-bottom: 2.5rem;
-}
-
-/* 3열 카드 */
-.cs-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
-}
-
-.cs-card {
-  border-radius: 1.2rem;
-  border: 1px solid var(--cs-border-subtle);
-  background: linear-gradient(145deg, rgba(10, 8, 24, 0.96), rgba(6, 5, 16, 0.96));
-  padding: 1.4rem 1.3rem;
-}
-
-.cs-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.cs-card p {
-  font-size: 0.9rem;
-  color: var(--cs-text-muted);
-  line-height: 1.7;
-}
-
-/* ===========================
-   버튼
-   =========================== */
-
-.cs-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.2rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.1s ease;
-}
-
-.cs-btn-full {
-  width: 100%;
-}
-
-.cs-btn-primary {
-  background: linear-gradient(135deg, var(--cs-primary), var(--cs-primary-strong));
-  color: #050510;
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
-.cs-btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.95),
-    0 0 0 1px rgba(255, 255, 255, 0.18);
-}
-
-.cs-btn-outline {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.18);
-  color: var(--cs-text-muted);
-}
-
-.cs-btn-outline:hover {
-  border-color: var(--cs-primary);
-  color: var(--cs-primary-strong);
-  background: rgba(168, 121, 255, 0.06);
-}
-
-/* ===========================
-   패키지 카드
-   =========================== */
-
-.cs-packages {
-  background: radial-gradient(circle at top, rgba(65, 51, 110, 0.9), rgba(7, 6, 18, 0.98));
+// app/page.tsx
+import React from "react";
+
+export default function Home() {
+  return (
+    <div className="cs-page">
+      {/* 헤더 */}
+      <header className="cs-header">
+        <div className="cs-container cs-header-inner">
+          <div className="cs-logo">청담 살롱</div>
+          <nav className="cs-nav">
+            <a href="#packages">패키지</a>
+            <a href="#process">진행 과정</a>
+            <a href="#faq">FAQ</a>
+            <a href="#cta">문의하기</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* 히어로 섹션 */}
+      <main>
+        <section className="cs-hero" id="top">
+          <div className="cs-hero-overlay" />
+          <div className="cs-container cs-hero-grid">
+            <div className="cs-hero-text">
+              <p className="cs-pill">하이엔드 1:1 점성술 PDF 리포트</p>
+              <h1>
+                청담 살롱에서만 돌던
+                <br />
+                <span>“관계 · 커리어” 리포트</span>가
+                <br />
+                이제 당신에게도 열립니다.
+              </h1>
+              <p className="cs-hero-sub">
+                한 번의 별자리 해석이 아니라,
+                <br />
+                실제 연애·결혼·이직 고민에 바로 적용되는
+                <strong> 고급 상담 리포트</strong>입니다.
+              </p>
+              <div className="cs-hero-actions">
+                <a href="#packages" className="cs-btn cs-btn-primary">
+                  패키지 및 가격 보기
+                </a>
+                <a href="#cta" className="cs-btn cs-btn-outline">
+                  상담/의뢰 방법 보기
+                </a>
+              </div>
+              <div className="cs-hero-meta">
+                <span>· 실제 고객 고민 기반 커스텀 리포트</span>
+                <span>· 연애/관계 + 커리어 방향성까지 한 번에</span>
+              </div>
+            </div>
+
+            <aside className="cs-hero-card">
+              <div className="cs-hero-card-inner">
+                <h2>청담 살롱 리포트 샘플</h2>
+                <p>
+                  • 실제 관계 패턴과 갈등 포인트를
+                  <br />
+                  &nbsp;&nbsp;점성술 언어로 정리
+                  <br />
+                  • “어떻게 말하고 행동해야 하는지”
+                  <br />
+                  &nbsp;&nbsp;구체적인 가이드
+                  <br />
+                  • 2026년 주요 타이밍 및
+                  <br />
+                  &nbsp;&nbsp;주의해야 할 포인트 정리
+                </p>
+                <div className="cs-hero-tag">
+                  PDF 12~18p 분량 · 개인 맞춤 리포트
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        {/* 왜 청담 살롱인가 */}
+        <section className="cs-section cs-why">
+          <div className="cs-container">
+            <h2 className="cs-section-title">왜, 청담 살롱 리포트여야 할까요?</h2>
+            <p className="cs-section-sub">
+              단순한 별자리 운세가 아니라,{" "}
+              <strong>“지금 내 상황에 바로 꽂히는 상담 요약본”</strong>을 목표로 합니다.
+            </p>
+            <div className="cs-grid-3">
+              <div className="cs-card">
+                <h3>01. 현실에 바로 적용되는 리포트</h3>
+                <p>
+                  “언제 좋은 인연 온다”가 아니라,
+                  <br />
+                  <strong>내가 관계에서 반복하는 패턴</strong>과
+                  <br />
+                  “그래서 어떻게 행동해야 하는지”에 집중합니다.
+                </p>
+              </div>
+              <div className="cs-card">
+                <h3>02. 관계 · 커리어를 함께 본 구조</h3>
+                <p>
+                  연애와 일은 따로 놀지 않습니다.
+                  <br />
+                  내 차트에서 <strong>관계와 커리어 축</strong>이
+                  <br />
+                  어떻게 연결되는지 함께 읽어드립니다.
+                </p>
+              </div>
+              <div className="cs-card">
+                <h3>03. 청담 스타일의 감도 높은 편집</h3>
+                <p>
+                  내용뿐 아니라,{" "}
+                  <strong>PDF 자체가 하나의 오브제</strong>처럼 남도록
+                  <br />
+                  레이아웃·컬러·카피까지 신경 쓴 리포트입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 패키지 섹션 */}
+        <section className="cs-section cs-packages" id="packages">
+          <div className="cs-container">
+            <h2 className="cs-section-title">패키지 & 가격</h2>
+            <p className="cs-section-sub">
+              크몽/자체몰 오픈 기념, <strong>한정 기간 프로모션가</strong>로 제공됩니다.
+            </p>
+
+            <div className="cs-packages-grid">
+              {/* 라이트 */}
+              <div className="cs-package-card">
+                <div className="cs-package-header">
+                  <span className="cs-package-label">Light</span>
+                  <h3>라이트 리포트</h3>
+                  <p className="cs-price">
+                    29,900<span className="cs-price-unit">원</span>
+                  </p>
+                </div>
+                <ul className="cs-package-list">
+                  <li>개인 차트 기반 기본 성향 요약</li>
+                  <li>현재 1년 간 주요 흐름 요약</li>
+                  <li>연애 / 관계 패턴 핵심 포인트</li>
+                  <li>PDF 약 8~10p 내외</li>
+                </ul>
+                <div className="cs-package-footer">
+                  <p className="cs-package-note">
+                    “먼저 나에 대한 전체적인 그림을 보고 싶을 때”
+                  </p>
+                  <a href="#cta" className="cs-btn cs-btn-outline cs-btn-full">
+                    라이트 의뢰 문의
+                  </a>
+                </div>
+              </div>
+
+              {/* 스탠다드 (대표) */}
+              <div className="cs-package-card cs-package-featured">
+                <div className="cs-package-header">
+                  <span className="cs-package-label">Most Picked</span>
+                  <h3>스탠다드 리포트</h3>
+                  <p className="cs-price">
+                    49,900<span className="cs-price-unit">원</span>
+                  </p>
+                </div>
+                <ul className="cs-package-list">
+                  <li>라이트 리포트 전 내용 포함</li>
+                  <li>연애/결혼 & 커리어 축 심층 분석</li>
+                  <li>현재 고민 2개까지 집중 분석</li>
+                  <li>월별 키 타이밍 · 주의 구간 정리 (12개월)</li>
+                  <li>PDF 약 14~18p 내외</li>
+                </ul>
+                <div className="cs-package-footer">
+                  <p className="cs-package-note">
+                    “관계 & 커리어를 함께 정리하고 싶은 분께 추천”
+                  </p>
+                  <a href="#cta" className="cs-btn cs-btn-primary cs-btn-full">
+                    스탠다드 의뢰 문의
+                  </a>
+                </div>
+              </div>
+
+              {/* 프리미엄 */}
+              <div className="cs-package-card">
+                <div className="cs-package-header">
+                  <span className="cs-package-label">Premium</span>
+                  <h3>프리미엄 리포트</h3>
+                  <p className="cs-price">
+                    79,900<span className="cs-price-unit">원</span>
+                  </p>
+                </div>
+                <ul className="cs-package-list">
+                  <li>스탠다드 전 내용 포함</li>
+                  <li>관계 / 커리어 중 한 축을 더 깊게 확장 분석</li>
+                  <li>“당신만의 사용설명서” 형식 추가 섹션</li>
+                  <li>맞춤 문장 템플릿(연락·대화 가이드) 일부 포함</li>
+                  <li>PDF 약 18~22p 내외</li>
+                </ul>
+                <div className="cs-package-footer">
+                  <p className="cs-package-note">
+                    “중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때”
+                  </p>
+                  <a href="#cta" className="cs-btn cs-btn-outline cs-btn-full">
+                    프리미엄 의뢰 문의
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 진행 절차 */}
+        <section className="cs-section cs-process" id="process">
+          <div className="cs-container">
+            <h2 className="cs-section-title">서비스 진행 절차</h2>
+            <p className="cs-section-sub">
+              모든 과정은 온라인으로 진행되며,{" "}
+              <strong>완성 리포트는 PDF 파일로 전달</strong>됩니다.
+            </p>
+
+            <ol className="cs-steps">
+              <li>
+                <h3>01. 의뢰 신청</h3>
+                <p>
+                  아래 문의 채널(카카오톡/이메일/크몽 등)로{" "}
+                  <strong>원하는 패키지 + 간단한 고민</strong>을 남겨주세요.
+                </p>
+              </li>
+              <li>
+                <h3>02. 정보 전달 & 결제</h3>
+                <p>
+                  생년월일·출생 시간·출생 도시 등 기본 정보와
+                  <br />
+                  현재 가장 중요한 고민(최대 2개)을 정리해 주시면 됩니다.
+                  <br />
+                  추후 Toss Payments/크몽 등으로 결제를 도와드립니다.
+                </p>
+              </li>
+              <li>
+                <h3>03. 리포트 제작</h3>
+                <p>
+                  차트 분석 및 리포트 작성에 <strong>평균 5~7일</strong> 정도 소요됩니다.
+                  <br />
+                  (대기 인원/스케줄에 따라 변동 가능)
+                </p>
+              </li>
+              <li>
+                <h3>04. PDF 전달</h3>
+                <p>
+                  완성된 리포트를 PDF로 전달드리며,
+                  <br />
+                  <strong>본인이 소장하고 반복해서 볼 수 있는 가이드북</strong>이 됩니다.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="cs-section cs-faq" id="faq">
+          <div className="cs-container">
+            <h2 className="cs-section-title">자주 묻는 질문</h2>
+
+            <div className="cs-faq-list">
+              <details>
+                <summary>Q. 사주랑 뭐가 다른가요?</summary>
+                <p>
+                  동양 사주 대신, <strong>서양 점성술(서양식 차트)</strong>을 기반으로 합니다.
+                  <br />
+                  “무조건적인 운세”보다는,{" "}
+                  <strong>내 성향과 패턴을 이해하고 선택을 돕는 도구</strong>에 가깝습니다.
+                </p>
+              </details>
+              <details>
+                <summary>Q. 점집처럼 “정확히 맞나요”?</summary>
+                <p>
+                  청담 살롱 리포트는 “당신의 패턴을 예리하게 짚어주는 상담 요약본”에 더
+                  가깝습니다.
+                  <br />
+                  <strong>절대적인 예언</strong>보다는,{" "}
+                  <strong>현실적인 방향성·행동 가이드</strong>에 초점을 둡니다.
+                </p>
+              </details>
+              <details>
+                <summary>Q. 출생 시간을 모르면 의뢰가 불가능한가요?</summary>
+                <p>
+                  출생 시간을 모를 경우, 해석 가능한 부분과 어려운 부분이 나뉩니다.
+                  <br />
+                  가능한 범위 내에서 진행은 가능하지만,{" "}
+                  <strong>정확도가 떨어질 수 있는 지점</strong>은 미리 안내드립니다.
+                </p>
+              </details>
+              <details>
+                <summary>Q. 커플/상대 차트도 같이 볼 수 있나요?</summary>
+                <p>
+                  현재 페이지의 패키지는 <strong>개인 리포트 기준</strong>입니다.
+                  <br />
+                  커플/시너스트리 리포트는 별도 옵션으로 준비 중이며,
+                  <br />
+                  문의 주시면 가능한 범위와 금액을 안내드릴게요.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="cs-section cs-cta" id="cta">
+          <div className="cs-container cs-cta-inner">
+            <div>
+              <h2>지금, 나에게 가장 필요한 한 문장을 찾고 있다면</h2>
+              <p>
+                청담 살롱 리포트는 “그냥 재미로 보는 운세”가 아니라,
+                <br />
+                <strong>내가 지금 어디에 서 있는지, 어디까지 갈 수 있는지</strong>를
+                조용히 정리해 주는
+                <br />
+                하이엔드 PDF 리포트입니다.
+              </p>
+              <p className="cs-cta-sub">
+                아래 채널 중 편한 곳으로 패키지명과 간단한 고민을 남겨주세요.
+              </p>
+
+              <div className="cs-cta-buttons">
+                <a
+                  href="https://open.kakao.com/o/your-link-here"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cs-btn cs-btn-primary"
+                >
+                  카카오톡 오픈채팅 문의
+                </a>
+                <a
+                  href="mailto:hello@chungdam-salon.com"
+                  className="cs-btn cs-btn-outline"
+                >
+                  이메일로 의뢰하기
+                </a>
+              </div>
+
+              <p className="cs-cta-note">
+                * Toss Payments / 자체 결제 페이지는 준비 중입니다.
+                <br />
+                * 결제 및 진행 방식은 1:1로 안내드려요.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* 푸터 */}
+      <footer className="cs-footer">
+        <div className="cs-container cs-footer-inner">
+          <div className="cs-footer-left">
+            <div className="cs-logo">청담 살롱</div>
+            <p>High-end Astrology Report · Chungdam Salon</p>
+          </div>
+          <div className="cs-footer-right">
+            <p>문의: hello@chungdam-salon.com</p>
+            <p>© {new Date().getFullYear()} Chungdam Salon. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
 }
-
-.cs-packages-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.cs-package-card {
-  border-radius: 1.4rem;
-  border: 1px solid var(--cs-border-subtle);
-  background: linear-gradient(145deg, rgba(8, 7, 20, 0.96), rgba(10, 8, 26, 0.98));
-  padding: 1.6rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cs-package-featured {
-  border-color: rgba(255, 255, 255, 0.2);
-  background:
-    radial-gradient(circle at top, rgba(168, 121, 255, 0.18), transparent 55%),
-    linear-gradient(145deg, rgba(14, 10, 36, 0.98), rgba(8, 6, 20, 0.98));
-  transform: translateY(-4px);
-  box-shadow:
-    0 22px 60px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(168, 121, 255, 0.35);
-}
-
-.cs-package-header h3 {
-  margin: 0.4rem 0;
-  font-size: 1.1rem;
-}
-
-.cs-package-label {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--cs-text-muted);
-}
-
-.cs-price {
-  margin-top: 0.2rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.cs-price-unit {
-  font-size: 0.85rem;
-  margin-left: 0.2rem;
-  color: var(--cs-text-muted);
-}
-
-.cs-package-list {
-  list-style: none;
-  margin: 1rem 0 1.1rem;
-  padding: 0;
-  font-size: 0.88rem;
-  color: var(--cs-text-muted);
-}
-
-.cs-package-list li {
-  padding-left: 1.1rem;
-  position: relative;
-  margin-bottom: 0.35rem;
-}
-
-.cs-package-list li::before {
-  content: "✶";
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-size: 0.7rem;
-  color: var(--cs-primary-strong);
-}
-
-.cs-package-note {
-  font-size: 0.8rem;
-  color: var(--cs-text-muted);
-  margin-bottom: 0.7rem;
-}
-
-/* ===========================
-   진행 단계
-   =========================== */
-
-.cs-process {
-  background: radial-gradient(circle at bottom, rgba(27, 40, 112, 0.7), rgba(5, 5, 16, 1));
-}
-
-.cs-steps {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1.4rem;
-}
-
-.cs-steps li {
-  border-radius: 1rem;
-  border: 1px solid var(--cs-border-subtle);
-  padding: 1.3rem 1.2rem;
-  background: rgba(8, 7, 22, 0.98);
-}
-
-.cs-steps h3 {
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-.cs-steps p {
-  font-size: 0.9rem;
-  color: var(--cs-text-muted);
-  line-height: 1.7;
-}
-
-/* ===========================
-   FAQ
-   =========================== */
-
-.cs-faq {
-  background: radial-gradient(circle at top, rgba(44, 38, 86, 0.9), rgba(5, 5, 16, 0.98));
-}
-
-.cs-faq-list {
-  max-width: 760px;
-  margin: 0 auto;
-  display: grid;
-  gap: 0.9rem;
-}
-
-.cs-faq-list details {
-  border-radius: 0.9rem;
-  border: 1px solid var(--cs-border-subtle);
-  background: rgba(10, 8, 24, 0.98);
-  padding: 0.85rem 1rem;
-}
-
-.cs-faq-list summary {
-  cursor: pointer;
-  list-style: none;
-  font-size: 0.9rem;
-}
-
-.cs-faq-list summary::-webkit-details-marker {
-  display: none;
-}
-
-.cs-faq-list summary::after {
-  content: "＋";
-  float: right;
-  font-size: 0.9rem;
-  color: var(--cs-text-muted);
-}
-
-.cs-faq-list details[open] summary::after {
-  content: "－";
-}
-
-.cs-faq-list p {
-  margin-top: 0.6rem;
-  font-size: 0.86rem;
-  color: var(--cs-text-muted);
-  line-height: 1.6;
-}
-
-/* ===========================
-   CTA
-   =========================== */
-
-.cs-cta {
-  background: radial-gradient(circle at center, rgba(168, 121, 255, 0.45), #050510);
-}
-
-.cs-cta-inner {
-  border-radius: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background:
-    linear-gradient(145deg, rgba(5, 4, 16, 0.96), rgba(10, 6, 26, 0.98)),
-    radial-gradient(circle at 100% 0, rgba(255, 178, 206, 0.18), transparent 60%);
-  padding: 2.2rem 1.8rem;
-}
-
-.cs-cta-inner h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.cs-cta-inner p {
-  font-size: 0.94rem;
-  color: var(--cs-text-muted);
-  line-height: 1.7;
-}
-
-.cs-cta-sub {
-  margin-top: 1rem;
-  font-size: 0.88rem;
-}
-
-.cs-cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1.5rem;
-}
-
-.cs-cta-note {
-  margin-top: 1rem;
-  font-size: 0.78rem;
-  color: var(--cs-text-muted);
-}
-
-/* ===========================
-   푸터
-   =========================== */
-
-.cs-footer {
-  border-top: 1px solid var(--cs-border-subtle);
-  padding: 1.4rem 0 1.8rem;
-  background: #050510;
-}
-
-.cs-footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: var(--cs-text-muted);
-}
-
-.cs-footer-left p {
-  margin-top: 0.2rem;
-}
-
-.cs-footer-right p {
-  margin: 0.1rem 0;
-}
-
-/* ===========================
-   반응형
-   =========================== */
-
-@media (max-width: 900px) {
-  .cs-header-inner {
-    justify-content: space-between;
-  }
-
-  .cs-nav {
-    display: none;
-  }
-
-  .cs-hero-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cs-hero-card-inner {
-    margin-top: 0.5rem;
-  }
-
-  .cs-packages-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cs-grid-3 {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .cs-cta-inner {
-    padding: 1.7rem 1.4rem;
-  }
-
-  .cs-footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.6rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .cs-section {
-    padding: 3rem 0;
-  }
-
-  .cs-hero {
-    padding-top: 3.3rem;
-  }
-
-  .cs-hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .cs-hero-meta {
-    flex-direction: column;
-  }
-}
-
