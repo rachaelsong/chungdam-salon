@@ -20,8 +20,12 @@ html,
 body {
   background: radial-gradient(circle at top, #1a1030 0, #050510 48%, #020207 100%);
   color: var(--cs-text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard Variable",
-    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+
+  /* ✅ 기본 본문 폰트 */
+  font-family: var(--font-sans), system-ui, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+}
+
 }
 
 /* 전체 페이지 래퍼 */
@@ -629,5 +633,13 @@ body {
   .cs-hero-meta {
     flex-direction: column;
   }
+}/* ====== 제목용 폰트 ====== */
+h1,
+h2,
+h3,
+.cs-section-title {
+  font-family: var(--font-serif), "Noto Serif KR", serif;
+  letter-spacing: -0.01em;
 }
+
 
