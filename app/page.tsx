@@ -320,7 +320,7 @@ export default function Home() {
 
               <div className="cs-cta-buttons">
                 <a
-                  href="https://open.kakao.com/o/your-link-here"
+                  href="https://open.kakao.com/o/gDdomP6h"
                   target="_blank"
                   rel="noreferrer"
                   className="cs-btn cs-btn-primary"
@@ -328,7 +328,7 @@ export default function Home() {
                   카카오톡 오픈채팅 문의
                 </a>
                 <a
-                  href="mailto:hello@chungdam-salon.com"
+                  href="mailto:youvean1210@gmail.com"
                   className="cs-btn cs-btn-outline"
                 >
                   이메일로 의뢰하기
@@ -353,7 +353,7 @@ export default function Home() {
             <p>High-end Astrology Report · Chungdam Salon</p>
           </div>
           <div className="cs-footer-right">
-            <p>문의: hello@chungdam-salon.com</p>
+            <p>문의: youvean1210@gmail.com</p>
             <p>© {new Date().getFullYear()} Chungdam Salon. All rights reserved.</p>
           </div>
         </div>
