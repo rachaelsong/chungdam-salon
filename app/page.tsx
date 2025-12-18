@@ -361,3 +361,25 @@ export default function Home() {
     </div>
   );
 }
+<footer className="cs-footer" style={{ borderTop: "1px solid rgba(255,255,255,0.12)", padding: "18px 0", marginTop: "40px" }}>
+  <div className="cs-container" style={{ color: "rgba(255,255,255,0.75)", fontSize: "12px", lineHeight: "1.7" }}>
+    <div style={{ marginBottom: "10px", color: "rgba(255,255,255,0.85)" }}>
+      © {new Date().getFullYear()} 청담 살롱 하이엔드 점성술 리포트. All rights reserved.
+    </div>
+
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 14px" }}>
+      <div>상호명: 피치피치팜</div>
+      <div>대표자명: 최혜경</div>
+      <div>사업자등록번호: 603-25-86377</div>
+      <div>통신판매업 신고번호: 2025-서울영등포-1864</div>
+      <div style={{ gridColumn: "1 / -1" }}>사업장 주소: 서울특별시 영등포구 여의서로 43, 614동 A90호</div>
+      <div>유선번호: 010-2628-5986</div>
+      <div>이메일: (운영 이메일 주소 입력)</div>
+    </div>
+
+    <div style={{ marginTop: "10px", fontSize: "11px", color: "rgba(255,255,255,0.55)" }}>
+      본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일 이내 이메일로 발송됩니다.
+    </div>
+  </div>
+</footer>
+
