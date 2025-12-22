@@ -21,7 +21,14 @@ export default function RootLayout({
             <div>사업장 주소: 서울특별시 영등포구 여의서로 43, 614동 A90호</div>
             <div>유선번호: 010-2628-5986</div>
           </div>
-        </footer>
+        </footer>\
+        <div style={{ marginTop: 12 }}>
+  <a href="/terms" style={{ marginRight: 12 }}>이용약관</a>
+  <a href="/privacy" style={{ marginRight: 12 }}>개인정보처리방침</a>
+  <a href="/refund">환불정책</a>
+</div>
+
+
       </body>
     </html>
   );
