@@ -1,5 +1,6 @@
 // app/page.tsx
 import React from "react";
+import PayButton from "./components/PayButton";
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
         </div>
       </header>
 
-      {/* 히어로 섹션 */}
       <main>
+        {/* 히어로 섹션 */}
         <section className="cs-hero" id="top">
           <div className="cs-hero-overlay" />
           <div className="cs-container cs-hero-grid">
@@ -80,7 +81,7 @@ export default function Home() {
           <div className="cs-container">
             <h2 className="cs-section-title">왜, 청담 살롱 리포트여야 할까요?</h2>
             <p className="cs-section-sub">
-              단순한 별자리 운세가 아니라,{" "}
+              단순한 별자리 운세가 아니라{" "}
               <strong>“지금 내 상황에 바로 꽂히는 상담 요약본”</strong>을 목표로 합니다.
             </p>
             <div className="cs-grid-3">
@@ -107,7 +108,7 @@ export default function Home() {
               <div className="cs-card">
                 <h3>03. 청담 스타일의 감도 높은 편집</h3>
                 <p>
-                  내용뿐 아니라,{" "}
+                  내용뿐 아니라{" "}
                   <strong>PDF 자체가 하나의 오브제</strong>처럼 남도록
                   <br />
                   레이아웃·컬러·카피까지 신경 쓴 리포트입니다.
@@ -145,9 +146,10 @@ export default function Home() {
                   <p className="cs-package-note">
                     “먼저 나에 대한 전체적인 그림을 보고 싶을 때”
                   </p>
-                  <a href="#cta" className="cs-btn cs-btn-outline cs-btn-full">
-                    라이트 의뢰 문의
-                  </a>
+                  {/* 결제 버튼 */}
+                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
+                    <PayButton planName="라이트" amount={29900} />
+                  </div>
                 </div>
               </div>
 
@@ -171,9 +173,10 @@ export default function Home() {
                   <p className="cs-package-note">
                     “관계 & 커리어를 함께 정리하고 싶은 분께 추천”
                   </p>
-                  <a href="#cta" className="cs-btn cs-btn-primary cs-btn-full">
-                    스탠다드 의뢰 문의
-                  </a>
+                  {/* 결제 버튼 */}
+                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
+                    <PayButton planName="스탠다드" amount={49900} />
+                  </div>
                 </div>
               </div>
 
@@ -197,9 +200,10 @@ export default function Home() {
                   <p className="cs-package-note">
                     “중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때”
                   </p>
-                  <a href="#cta" className="cs-btn cs-btn-outline cs-btn-full">
-                    프리미엄 의뢰 문의
-                  </a>
+                  {/* 결제 버튼 */}
+                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
+                    <PayButton planName="프리미엄" amount={79900} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -211,8 +215,7 @@ export default function Home() {
           <div className="cs-container">
             <h2 className="cs-section-title">서비스 진행 절차</h2>
             <p className="cs-section-sub">
-              모든 과정은 온라인으로 진행되며,{" "}
-              <strong>완성 리포트는 PDF 파일로 전달</strong>됩니다.
+              모든 과정은 온라인으로 진행되며, <strong>완성 리포트는 PDF 파일로 전달</strong>됩니다.
             </p>
 
             <ol className="cs-steps">
@@ -230,7 +233,7 @@ export default function Home() {
                   <br />
                   현재 가장 중요한 고민(최대 2개)을 정리해 주시면 됩니다.
                   <br />
-                  추후 Toss Payments/크몽 등으로 결제를 도와드립니다.
+                  결제는 페이지 상단 패키지 섹션에서 신용카드로 진행 가능합니다.
                 </p>
               </li>
               <li>
@@ -264,17 +267,16 @@ export default function Home() {
                 <p>
                   동양 사주 대신, <strong>서양 점성술(서양식 차트)</strong>을 기반으로 합니다.
                   <br />
-                  “무조건적인 운세”보다는,{" "}
+                  “무조건적인 운세”보다는{" "}
                   <strong>내 성향과 패턴을 이해하고 선택을 돕는 도구</strong>에 가깝습니다.
                 </p>
               </details>
               <details>
                 <summary>Q. 점집처럼 “정확히 맞나요”?</summary>
                 <p>
-                  청담 살롱 리포트는 “당신의 패턴을 예리하게 짚어주는 상담 요약본”에 더
-                  가깝습니다.
+                  청담 살롱 리포트는 “당신의 패턴을 예리하게 짚어주는 상담 요약본”에 더 가깝습니다.
                   <br />
-                  <strong>절대적인 예언</strong>보다는,{" "}
+                  <strong>절대적인 예언</strong>보다는{" "}
                   <strong>현실적인 방향성·행동 가이드</strong>에 초점을 둡니다.
                 </p>
               </details>
@@ -283,7 +285,7 @@ export default function Home() {
                 <p>
                   출생 시간을 모를 경우, 해석 가능한 부분과 어려운 부분이 나뉩니다.
                   <br />
-                  가능한 범위 내에서 진행은 가능하지만,{" "}
+                  가능한 범위 내에서 진행은 가능하지만{" "}
                   <strong>정확도가 떨어질 수 있는 지점</strong>은 미리 안내드립니다.
                 </p>
               </details>
@@ -327,107 +329,54 @@ export default function Home() {
                 >
                   카카오톡 오픈채팅 문의
                 </a>
-                <a
-                  href="mailto:youvean1210@gmail.com"
-                  className="cs-btn cs-btn-outline"
-                >
+                <a href="mailto:youvean1210@gmail.com" className="cs-btn cs-btn-outline">
                   이메일로 의뢰하기
                 </a>
               </div>
 
               <p className="cs-cta-note">
-                * Toss Payments / 자체 결제 페이지는 준비 중입니다.
+                * 결제는 상단 패키지 섹션에서 신용카드로 진행 가능합니다.
                 <br />
-                * 결제 및 진행 방식은 1:1로 안내드려요.
+                * 결제 후 진행 방식은 1:1로 안내드려요.
               </p>
             </div>
           </div>
         </section>
       </main>
 
-      {/* 푸터 */}
-      <footer className="cs-footer">
-        <div className="cs-container cs-footer-inner">
+      {/* 푸터 (기존 + 사업자정보 합쳐서 1개로만) */}
+      <footer className="cs-footer" style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
+        <div className="cs-container cs-footer-inner" style={{ display: "grid", gap: "12px" }}>
           <div className="cs-footer-left">
             <div className="cs-logo">청담 살롱</div>
             <p>High-end Astrology Report · Chungdam Salon</p>
           </div>
+
           <div className="cs-footer-right">
             <p>문의: youvean1210@gmail.com</p>
             <p>© {new Date().getFullYear()} Chungdam Salon. All rights reserved.</p>
+          </div>
+
+          <div style={{ color: "rgba(255,255,255,0.75)", fontSize: "12px", lineHeight: "1.7" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 14px" }}>
+              <div>상호명: 피치피치팜</div>
+              <div>대표자명: 최혜경</div>
+              <div>사업자등록번호: 603-25-86377</div>
+              <div>통신판매업 신고번호: 2025-서울영등포-1864</div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                사업장 주소: 서울특별시 영등포구 여의서로 43, 614동 A90호
+              </div>
+              <div>유선번호: 010-2628-5986</div>
+              <div>이메일: youvean1210@gmail.com</div>
+            </div>
+
+            <div style={{ marginTop: "10px", fontSize: "11px", color: "rgba(255,255,255,0.55)" }}>
+              본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일 이내 이메일로 발송됩니다.
+            </div>
           </div>
         </div>
       </footer>
     </div>
   );
 }
-<footer className="cs-footer" style={{ borderTop: "1px solid rgba(255,255,255,0.12)", padding: "18px 0", marginTop: "40px" }}>
-  <div className="cs-container" style={{ color: "rgba(255,255,255,0.75)", fontSize: "12px", lineHeight: "1.7" }}>
-    <div style={{ marginBottom: "10px", color: "rgba(255,255,255,0.85)" }}>
-      © {new Date().getFullYear()} 청담 살롱 하이엔드 점성술 리포트. All rights reserved.
-    </div>
-
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 14px" }}>
-      <div>상호명: 피치피치팜</div>
-      <div>대표자명: 최혜경</div>
-      <div>사업자등록번호: 603-25-86377</div>
-      <div>통신판매업 신고번호: 2025-서울영등포-1864</div>
-      <div style={{ gridColumn: "1 / -1" }}>사업장 주소: 서울특별시 영등포구 여의서로 43, 614동 A90호</div>
-      <div>유선번호: 010-2628-5986</div>
-      <div>이메일: (운영 이메일 주소 입력)</div>
-    </div>
-
-    <div style={{ marginTop: "10px", fontSize: "11px", color: "rgba(255,255,255,0.55)" }}>
-      본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일 이내 이메일로 발송됩니다.
-    </div>
-  </div>
-</footer>
-
-import PayButton from "./components/PayButton";
-
-export default function Home() {
-  return (
-    <main style={{ maxWidth: 980, margin: "0 auto", padding: "40px 16px" }}>
-      <h1 style={{ fontSize: 34, fontWeight: 800 }}>청담 살롱 하이엔드 점성술 리포트</h1>
-
-      <section style={{ display: "grid", gap: 18, marginTop: 24 }}>
-        {/* 라이트 */}
-        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800 }}>라이트</h2>
-          <p style={{ opacity: 0.9 }}>핵심 요약 리포트</p>
-          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩9,900</p>
-          <div style={{ marginTop: 14 }}>
-            <PayButton planName="라이트" amount={9900} />
-          </div>
-        </div>
-
-        {/* 스탠다드 */}
-        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800 }}>스탠다드</h2>
-          <p style={{ opacity: 0.9 }}>디테일 확장 리포트</p>
-          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩19,900</p>
-          <div style={{ marginTop: 14 }}>
-            <PayButton planName="스탠다드" amount={19900} />
-          </div>
-        </div>
-
-        {/* 프리미엄 */}
-        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
-          <h2 style={{ fontSize: 20, fontWeight: 800 }}>프리미엄</h2>
-          <p style={{ opacity: 0.9 }}>가장 깊은 버전</p>
-          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩29,900</p>
-          <div style={{ marginTop: 14 }}>
-            <PayButton planName="프리미엄" amount={29900} />
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
-
-import PayButton from "./components/PayButton";
-
-<PayButton planName="라이트" amount={9900} />
-<PayButton planName="스탠다드" amount={19900} />
-<PayButton planName="프리미엄" amount={29900} />
 
