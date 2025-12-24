@@ -383,3 +383,45 @@ export default function Home() {
   </div>
 </footer>
 
+import PayButton from "./components/PayButton";
+
+export default function Home() {
+  return (
+    <main style={{ maxWidth: 980, margin: "0 auto", padding: "40px 16px" }}>
+      <h1 style={{ fontSize: 34, fontWeight: 800 }}>청담 살롱 하이엔드 점성술 리포트</h1>
+
+      <section style={{ display: "grid", gap: 18, marginTop: 24 }}>
+        {/* 라이트 */}
+        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
+          <h2 style={{ fontSize: 20, fontWeight: 800 }}>라이트</h2>
+          <p style={{ opacity: 0.9 }}>핵심 요약 리포트</p>
+          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩9,900</p>
+          <div style={{ marginTop: 14 }}>
+            <PayButton planName="라이트" amount={9900} />
+          </div>
+        </div>
+
+        {/* 스탠다드 */}
+        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
+          <h2 style={{ fontSize: 20, fontWeight: 800 }}>스탠다드</h2>
+          <p style={{ opacity: 0.9 }}>디테일 확장 리포트</p>
+          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩19,900</p>
+          <div style={{ marginTop: 14 }}>
+            <PayButton planName="스탠다드" amount={19900} />
+          </div>
+        </div>
+
+        {/* 프리미엄 */}
+        <div style={{ padding: 18, borderRadius: 18, border: "1px solid rgba(255,255,255,0.12)" }}>
+          <h2 style={{ fontSize: 20, fontWeight: 800 }}>프리미엄</h2>
+          <p style={{ opacity: 0.9 }}>가장 깊은 버전</p>
+          <p style={{ fontSize: 22, fontWeight: 900, marginTop: 10 }}>₩29,900</p>
+          <div style={{ marginTop: 14 }}>
+            <PayButton planName="프리미엄" amount={29900} />
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
