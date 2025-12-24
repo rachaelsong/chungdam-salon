@@ -425,3 +425,9 @@ export default function Home() {
   );
 }
 
+import PayButton from "./components/PayButton";
+
+<PayButton planName="라이트" amount={9900} />
+<PayButton planName="스탠다드" amount={19900} />
+<PayButton planName="프리미엄" amount={29900} />
+
