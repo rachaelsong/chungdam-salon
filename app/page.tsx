@@ -1,6 +1,6 @@
 // app/page.tsx
 import React from "react";
-import PayButton from "./components/PayButton";
+import PayButton from "@/components/PayButton";
 
 export default function Home() {
   return (
