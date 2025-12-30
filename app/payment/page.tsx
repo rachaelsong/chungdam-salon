@@ -1,5 +1,6 @@
 'use client';
-import PayButton from "@/components/PayButton";
+import PayButton from "./components/PayButton";
+
 
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
