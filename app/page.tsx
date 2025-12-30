@@ -1,6 +1,5 @@
 // app/page.tsx
 import React from "react";
-import PayButton from "./components/PayButton";
 
 export default function Home() {
   return (
@@ -28,7 +27,7 @@ export default function Home() {
               <h1>
                 청담 살롱에서만 돌던
                 <br />
-                <span>“관계 · 커리어” 리포트</span>가
+                <span>"관계 · 커리어" 리포트</span>가
                 <br />
                 이제 당신에게도 열립니다.
               </h1>
@@ -60,7 +59,7 @@ export default function Home() {
                   <br />
                   &nbsp;&nbsp;점성술 언어로 정리
                   <br />
-                  • “어떻게 말하고 행동해야 하는지”
+                  • "어떻게 말하고 행동해야 하는지"
                   <br />
                   &nbsp;&nbsp;구체적인 가이드
                   <br />
@@ -82,17 +81,17 @@ export default function Home() {
             <h2 className="cs-section-title">왜, 청담 살롱 리포트여야 할까요?</h2>
             <p className="cs-section-sub">
               단순한 별자리 운세가 아니라{" "}
-              <strong>“지금 내 상황에 바로 꽂히는 상담 요약본”</strong>을 목표로 합니다.
+              <strong>"지금 내 상황에 바로 꽂히는 상담 요약본"</strong>을 목표로 합니다.
             </p>
             <div className="cs-grid-3">
               <div className="cs-card">
                 <h3>01. 현실에 바로 적용되는 리포트</h3>
                 <p>
-                  “언제 좋은 인연 온다”가 아니라,
+                  "언제 좋은 인연 온다"가 아니라,
                   <br />
                   <strong>내가 관계에서 반복하는 패턴</strong>과
                   <br />
-                  “그래서 어떻게 행동해야 하는지”에 집중합니다.
+                  "그래서 어떻게 행동해야 하는지"에 집중합니다.
                 </p>
               </div>
               <div className="cs-card">
@@ -144,12 +143,12 @@ export default function Home() {
                 </ul>
                 <div className="cs-package-footer">
                   <p className="cs-package-note">
-                    “먼저 나에 대한 전체적인 그림을 보고 싶을 때”
+                    "먼저 나에 대한 전체적인 그림을 보고 싶을 때"
                   </p>
                   {/* 결제 버튼 */}
-                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
-                    <PayButton planName="라이트" amount={29900} />
-                  </div>
+                  <a href="/payment?package=light" className="cs-btn cs-btn-full">
+                    라이트 결제하기
+                  </a>
                 </div>
               </div>
 
@@ -171,12 +170,12 @@ export default function Home() {
                 </ul>
                 <div className="cs-package-footer">
                   <p className="cs-package-note">
-                    “관계 & 커리어를 함께 정리하고 싶은 분께 추천”
+                    "관계 & 커리어를 함께 정리하고 싶은 분께 추천"
                   </p>
                   {/* 결제 버튼 */}
-                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
-                    <PayButton planName="스탠다드" amount={49900} />
-                  </div>
+                  <a href="/payment?package=standard" className="cs-btn cs-btn-full">
+                    스탠다드 결제하기
+                  </a>
                 </div>
               </div>
 
@@ -192,18 +191,18 @@ export default function Home() {
                 <ul className="cs-package-list">
                   <li>스탠다드 전 내용 포함</li>
                   <li>관계 / 커리어 중 한 축을 더 깊게 확장 분석</li>
-                  <li>“당신만의 사용설명서” 형식 추가 섹션</li>
+                  <li>"당신만의 사용설명서" 형식 추가 섹션</li>
                   <li>맞춤 문장 템플릿(연락·대화 가이드) 일부 포함</li>
                   <li>PDF 약 18~22p 내외</li>
                 </ul>
                 <div className="cs-package-footer">
                   <p className="cs-package-note">
-                    “중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때”
+                    "중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때"
                   </p>
                   {/* 결제 버튼 */}
-                  <div className="cs-btn cs-btn-full" style={{ padding: 0, border: "none", background: "transparent" }}>
-                    <PayButton planName="프리미엄" amount={79900} />
-                  </div>
+                  <a href="/payment?package=premium" className="cs-btn cs-btn-full">
+                    프리미엄 결제하기
+                  </a>
                 </div>
               </div>
             </div>
@@ -267,14 +266,14 @@ export default function Home() {
                 <p>
                   동양 사주 대신, <strong>서양 점성술(서양식 차트)</strong>을 기반으로 합니다.
                   <br />
-                  “무조건적인 운세”보다는{" "}
+                  "무조건적인 운세"보다는{" "}
                   <strong>내 성향과 패턴을 이해하고 선택을 돕는 도구</strong>에 가깝습니다.
                 </p>
               </details>
               <details>
-                <summary>Q. 점집처럼 “정확히 맞나요”?</summary>
+                <summary>Q. 점집처럼 "정확히 맞나요"?</summary>
                 <p>
-                  청담 살롱 리포트는 “당신의 패턴을 예리하게 짚어주는 상담 요약본”에 더 가깝습니다.
+                  청담 살롱 리포트는 "당신의 패턴을 예리하게 짚어주는 상담 요약본"에 더 가깝습니다.
                   <br />
                   <strong>절대적인 예언</strong>보다는{" "}
                   <strong>현실적인 방향성·행동 가이드</strong>에 초점을 둡니다.
@@ -309,7 +308,7 @@ export default function Home() {
             <div>
               <h2>지금, 나에게 가장 필요한 한 문장을 찾고 있다면</h2>
               <p>
-                청담 살롱 리포트는 “그냥 재미로 보는 운세”가 아니라,
+                청담 살롱 리포트는 "그냥 재미로 보는 운세"가 아니라,
                 <br />
                 <strong>내가 지금 어디에 서 있는지, 어디까지 갈 수 있는지</strong>를
                 조용히 정리해 주는
@@ -321,7 +320,7 @@ export default function Home() {
               </p>
 
               <div className="cs-cta-buttons">
-                <a
+                
                   href="https://open.kakao.com/o/gDdomP6h"
                   target="_blank"
                   rel="noreferrer"
@@ -379,4 +378,3 @@ export default function Home() {
     </div>
   );
 }
-
