@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import PayButton from "@/components/PayButton";
 
 export default function PayPage() {
   useEffect(() => {
