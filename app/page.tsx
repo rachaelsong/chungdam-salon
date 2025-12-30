@@ -1,5 +1,6 @@
 // app/page.tsx
 import React from "react";
+import PayButton from "./components/PayButton";
 
 export default function Home() {
   return (
@@ -146,9 +147,7 @@ export default function Home() {
                     "먼저 나에 대한 전체적인 그림을 보고 싶을 때"
                   </p>
                   {/* 결제 버튼 */}
-                  <a href="/payment?package=light" className="cs-btn cs-btn-full">
-                    라이트 결제하기
-                  </a>
+                  <PayButton planName="라이트" amount={29900} />
                 </div>
               </div>
 
@@ -173,9 +172,7 @@ export default function Home() {
                     "관계 & 커리어를 함께 정리하고 싶은 분께 추천"
                   </p>
                   {/* 결제 버튼 */}
-                  <a href="/payment?package=standard" className="cs-btn cs-btn-full">
-                    스탠다드 결제하기
-                  </a>
+                  <PayButton planName="스탠다드" amount={49900} />
                 </div>
               </div>
 
@@ -200,9 +197,7 @@ export default function Home() {
                     "중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때"
                   </p>
                   {/* 결제 버튼 */}
-                  <a href="/payment?package=premium" className="cs-btn cs-btn-full">
-                    프리미엄 결제하기
-                  </a>
+                  <PayButton planName="프리미엄" amount={79900} />
                 </div>
               </div>
             </div>
