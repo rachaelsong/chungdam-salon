@@ -245,3 +245,4 @@ export default function Home() {
     </div>
   );
 }
+Fix PayButton props and import
