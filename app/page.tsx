@@ -1,6 +1,32 @@
 "use client";
 
-import PayButton from "./components/PayButton";
+// ✅ PayButton을 이 파일 안에 “직접” 선언해서 타입/import 문제를 원천 제거
+type PayButtonProps = {
+  planName: string;
+  amount: number;
+};
+
+function PayButton({ planName, amount }: PayButtonProps) {
+  const onClick = () => {
+    alert(`${planName} / ${amount.toLocaleString()}원 결제 연결 예정`);
+  };
+
+  return (
+    <button type="button" className="cs-btn cs-btn-full" onClick={onClick}>
+      {planName} 결제하기 ({amount.toLocaleString()}원)
+    </button>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="cs-page">
+      {/* 이하 너가 쓰던 기존 코드 그대로 */}
+      {/* ... */}
+    </div>
+  );
+}
+
 
 export default function Home() {
   return (
