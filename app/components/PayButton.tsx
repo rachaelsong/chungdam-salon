@@ -4,9 +4,10 @@ type PayButtonProps = {
 };
 
 export default function PayButton({ planName, amount }: PayButtonProps) {
+  // TODO: 기존 결제 로직이 있으면 여기/아래에 유지
   return (
-    <button>
-      {planName} / {amount.toLocaleString()}원 결제
+    <button type="button">
+      {planName} 결제 ({amount.toLocaleString()}원)
     </button>
   );
 }
