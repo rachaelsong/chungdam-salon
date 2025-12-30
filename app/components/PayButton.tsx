@@ -18,4 +18,3 @@ export default function PayButton({ planName, amount }: PayButtonProps) {
     </button>
   );
 }
-Fix PayButton props and import
