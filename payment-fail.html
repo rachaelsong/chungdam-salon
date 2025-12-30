@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제 실패 - 청담 살롱</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .fail-icon {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            padding: 50px;
+        }
+
+        .fail-icon svg {
+            width: 100px;
+            height: 100px;
+            stroke: white;
+            fill: none;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #212529;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .message {
+            color: #6c757d;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            border: 1px solid #f5c2c7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .error-title {
+            color: #842029;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .error-reason {
+            color: #842029;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .common-reasons {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .common-reasons h3 {
+            color: #856404;
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .common-reasons ul {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .common-reasons li {
+            margin-bottom: 8px;
+        }
+
+        .common-reasons strong {
+            color: #dc3545;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 15px;
+        }
+
+        .btn-retry {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-retry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-home {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-home:hover {
+            background: #f8f9fa;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            
+            .fail-icon {
+                padding: 40px;
+            }
+            
+            .fail-icon svg {
+                width: 80px;
+                height: 80px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fail-icon">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke="white" stroke-width="4" fill="none" opacity="0.3"/>
+                <line x1="35" y1="35" x2="65" y2="65" stroke="white" stroke-width="5"/>
+                <line x1="65" y1="35" x2="35" y2="65" stroke="white" stroke-width="5"/>
+            </svg>
+        </div>
+
+        <div class="content">
+            <h1>결제에 실패했습니다</h1>
+            <p class="message">
+                결제 처리 중 문제가 발생했습니다.<br>
+                아래 내용을 확인하신 후 다시 시도해 주세요.
+            </p>
+
+            <div class="error-box">
+                <div class="error-title">실패 사유</div>
+                <div class="error-reason" id="errorReason">
+                    알 수 없는 오류가 발생했습니다.
+                </div>
+            </div>
+
+            <div class="common-reasons">
+                <h3>💡 자주 발생하는 원인</h3>
+                <ul>
+                    <li><strong>현대카드, 삼성카드 사용</strong> - 점성술 서비스는 해당 카드사에서 결제가 불가합니다</li>
+                    <li><strong>카드 한도 초과</strong> - 일일/월간 결제 한도를 확인해 주세요</li>
+                    <li><strong>비밀번호 오류</strong> - 카드 비밀번호를 정확히 입력했는지 확인해 주세요</li>
+                    <li><strong>해외 결제 차단</strong> - 카드사에 해외 결제가 차단되어 있을 수 있습니다</li>
+                    <li><strong>결제 취소</strong> - 결제 창을 중간에 닫으셨나요?</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <a href="javascript:history.back();" class="btn btn-retry">다시 시도하기</a>
+                <a href="https://www.chungdamsalon.shop" class="btn btn-home">메인으로</a>
+            </div>
+
+            <div class="contact-info">
+                <strong>문제가 계속될 경우</strong><br>
+                카카오톡: <a href="https://open.kakao.com/o/gDdomP6h" target="_blank">오픈채팅 바로가기</a><br>
+                이메일: <a href="mailto:youvean1210@gmail.com">youvean1210@gmail.com</a><br>
+                <br>
+                <small>또는 다른 카드로 시도해 보시거나, 카카오톡으로 직접 문의 주시면<br>계좌이체 등 다른 결제 방법을 안내해 드리겠습니다.</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // URL에서 실패 사유 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const reason = urlParams.get('reason');
+        
+        if (reason) {
+            document.getElementById('errorReason').textContent = decodeURIComponent(reason);
+        }
+    </script>
+</body>
+</html>
