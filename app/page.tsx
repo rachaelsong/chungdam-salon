@@ -1,7 +1,7 @@
-// app/page.tsx
-import React from "react";
-import PayButton from "./components/PayButton";
+"use client";
 
+// app/page.tsx
+import PayButton from "./components/PayButton";
 
 export default function Home() {
   return (
@@ -316,7 +316,7 @@ export default function Home() {
               </p>
 
               <div className="cs-cta-buttons">
-                
+                <a
                   href="https://open.kakao.com/o/gDdomP6h"
                   target="_blank"
                   rel="noreferrer"
@@ -340,7 +340,10 @@ export default function Home() {
       </main>
 
       {/* 푸터 (기존 + 사업자정보 합쳐서 1개로만) */}
-      <footer className="cs-footer" style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}>
+      <footer
+        className="cs-footer"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+      >
         <div className="cs-container cs-footer-inner" style={{ display: "grid", gap: "12px" }}>
           <div className="cs-footer-left">
             <div className="cs-logo">청담 살롱</div>
@@ -366,7 +369,8 @@ export default function Home() {
             </div>
 
             <div style={{ marginTop: "10px", fontSize: "11px", color: "rgba(255,255,255,0.55)" }}>
-              본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일 이내 이메일로 발송됩니다.
+              본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일
+              이내 이메일로 발송됩니다.
             </div>
           </div>
         </div>
