@@ -1,6 +1,5 @@
 "use client";
 
-// app/page.tsx
 import PayButton from "./components/PayButton";
 
 export default function Home() {
@@ -147,12 +146,11 @@ export default function Home() {
                   <p className="cs-package-note">
                     "먼저 나에 대한 전체적인 그림을 보고 싶을 때"
                   </p>
-                  {/* 결제 버튼 */}
                   <PayButton planName="라이트" amount={29900} />
                 </div>
               </div>
 
-              {/* 스탠다드 (대표) */}
+              {/* 스탠다드 */}
               <div className="cs-package-card cs-package-featured">
                 <div className="cs-package-header">
                   <span className="cs-package-label">Most Picked</span>
@@ -172,7 +170,6 @@ export default function Home() {
                   <p className="cs-package-note">
                     "관계 & 커리어를 함께 정리하고 싶은 분께 추천"
                   </p>
-                  {/* 결제 버튼 */}
                   <PayButton planName="스탠다드" amount={49900} />
                 </div>
               </div>
@@ -197,103 +194,9 @@ export default function Home() {
                   <p className="cs-package-note">
                     "중요한 타이밍을 앞두고 깊이 있게 정리하고 싶을 때"
                   </p>
-                  {/* 결제 버튼 */}
                   <PayButton planName="프리미엄" amount={79900} />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 진행 절차 */}
-        <section className="cs-section cs-process" id="process">
-          <div className="cs-container">
-            <h2 className="cs-section-title">서비스 진행 절차</h2>
-            <p className="cs-section-sub">
-              모든 과정은 온라인으로 진행되며, <strong>완성 리포트는 PDF 파일로 전달</strong>됩니다.
-            </p>
-
-            <ol className="cs-steps">
-              <li>
-                <h3>01. 의뢰 신청</h3>
-                <p>
-                  아래 문의 채널(카카오톡/이메일/크몽 등)로{" "}
-                  <strong>원하는 패키지 + 간단한 고민</strong>을 남겨주세요.
-                </p>
-              </li>
-              <li>
-                <h3>02. 정보 전달 & 결제</h3>
-                <p>
-                  생년월일·출생 시간·출생 도시 등 기본 정보와
-                  <br />
-                  현재 가장 중요한 고민(최대 2개)을 정리해 주시면 됩니다.
-                  <br />
-                  결제는 페이지 상단 패키지 섹션에서 신용카드로 진행 가능합니다.
-                </p>
-              </li>
-              <li>
-                <h3>03. 리포트 제작</h3>
-                <p>
-                  차트 분석 및 리포트 작성에 <strong>평균 5~7일</strong> 정도 소요됩니다.
-                  <br />
-                  (대기 인원/스케줄에 따라 변동 가능)
-                </p>
-              </li>
-              <li>
-                <h3>04. PDF 전달</h3>
-                <p>
-                  완성된 리포트를 PDF로 전달드리며,
-                  <br />
-                  <strong>본인이 소장하고 반복해서 볼 수 있는 가이드북</strong>이 됩니다.
-                </p>
-              </li>
-            </ol>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="cs-section cs-faq" id="faq">
-          <div className="cs-container">
-            <h2 className="cs-section-title">자주 묻는 질문</h2>
-
-            <div className="cs-faq-list">
-              <details>
-                <summary>Q. 사주랑 뭐가 다른가요?</summary>
-                <p>
-                  동양 사주 대신, <strong>서양 점성술(서양식 차트)</strong>을 기반으로 합니다.
-                  <br />
-                  "무조건적인 운세"보다는{" "}
-                  <strong>내 성향과 패턴을 이해하고 선택을 돕는 도구</strong>에 가깝습니다.
-                </p>
-              </details>
-              <details>
-                <summary>Q. 점집처럼 "정확히 맞나요"?</summary>
-                <p>
-                  청담 살롱 리포트는 "당신의 패턴을 예리하게 짚어주는 상담 요약본"에 더 가깝습니다.
-                  <br />
-                  <strong>절대적인 예언</strong>보다는{" "}
-                  <strong>현실적인 방향성·행동 가이드</strong>에 초점을 둡니다.
-                </p>
-              </details>
-              <details>
-                <summary>Q. 출생 시간을 모르면 의뢰가 불가능한가요?</summary>
-                <p>
-                  출생 시간을 모를 경우, 해석 가능한 부분과 어려운 부분이 나뉩니다.
-                  <br />
-                  가능한 범위 내에서 진행은 가능하지만{" "}
-                  <strong>정확도가 떨어질 수 있는 지점</strong>은 미리 안내드립니다.
-                </p>
-              </details>
-              <details>
-                <summary>Q. 커플/상대 차트도 같이 볼 수 있나요?</summary>
-                <p>
-                  현재 페이지의 패키지는 <strong>개인 리포트 기준</strong>입니다.
-                  <br />
-                  커플/시너스트리 리포트는 별도 옵션으로 준비 중이며,
-                  <br />
-                  문의 주시면 가능한 범위와 금액을 안내드릴게요.
-                </p>
-              </details>
             </div>
           </div>
         </section>
@@ -324,6 +227,7 @@ export default function Home() {
                 >
                   카카오톡 오픈채팅 문의
                 </a>
+
                 <a href="mailto:youvean1210@gmail.com" className="cs-btn cs-btn-outline">
                   이메일로 의뢰하기
                 </a>
@@ -338,43 +242,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      {/* 푸터 (기존 + 사업자정보 합쳐서 1개로만) */}
-      <footer
-        className="cs-footer"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
-      >
-        <div className="cs-container cs-footer-inner" style={{ display: "grid", gap: "12px" }}>
-          <div className="cs-footer-left">
-            <div className="cs-logo">청담 살롱</div>
-            <p>High-end Astrology Report · Chungdam Salon</p>
-          </div>
-
-          <div className="cs-footer-right">
-            <p>문의: youvean1210@gmail.com</p>
-            <p>© {new Date().getFullYear()} Chungdam Salon. All rights reserved.</p>
-          </div>
-
-          <div style={{ color: "rgba(255,255,255,0.75)", fontSize: "12px", lineHeight: "1.7" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4px 14px" }}>
-              <div>상호명: 피치피치팜</div>
-              <div>대표자명: 최혜경</div>
-              <div>사업자등록번호: 603-25-86377</div>
-              <div>통신판매업 신고번호: 2025-서울영등포-1864</div>
-              <div style={{ gridColumn: "1 / -1" }}>
-                사업장 주소: 서울특별시 영등포구 여의서로 43, 614동 A90호
-              </div>
-              <div>유선번호: 010-2628-5986</div>
-              <div>이메일: youvean1210@gmail.com</div>
-            </div>
-
-            <div style={{ marginTop: "10px", fontSize: "11px", color: "rgba(255,255,255,0.55)" }}>
-              본 서비스는 무형 디지털 콘텐츠(PDF 리포트) 제공 서비스입니다. 결제 확인 후 최대 7영업일
-              이내 이메일로 발송됩니다.
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
